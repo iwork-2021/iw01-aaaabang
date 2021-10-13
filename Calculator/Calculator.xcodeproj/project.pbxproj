@@ -13,6 +13,7 @@
 		631E93BA27116BA3006E206F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 631E93B827116BA3006E206F /* Main.storyboard */; };
 		631E93BC27116BA7006E206F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 631E93BB27116BA7006E206F /* Assets.xcassets */; };
 		631E93BF27116BA7006E206F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 631E93BD27116BA7006E206F /* LaunchScreen.storyboard */; };
+		6383A1D82713E90B003E2681 /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6383A1D72713E90B003E2681 /* Calculator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		631E93C027116BA7006E206F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		631E93C527116BA7006E206F /* CalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		631E93CF27116BA7006E206F /* CalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6383A1D72713E90B003E2681 /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				631E93BB27116BA7006E206F /* Assets.xcassets */,
 				631E93BD27116BA7006E206F /* LaunchScreen.storyboard */,
 				631E93C027116BA7006E206F /* Info.plist */,
+				6383A1D72713E90B003E2681 /* Calculator.swift */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				631E93B727116BA3006E206F /* ViewController.swift in Sources */,
+				6383A1D82713E90B003E2681 /* Calculator.swift in Sources */,
 				631E93B327116BA3006E206F /* AppDelegate.swift in Sources */,
 				631E93B527116BA3006E206F /* SceneDelegate.swift in Sources */,
 			);
