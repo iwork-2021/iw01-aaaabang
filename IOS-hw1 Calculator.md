@@ -120,9 +120,13 @@
 
 ### 结果展示
 
+![](https://user-images.githubusercontent.com/60206647/137360225-1db5f033-4b3a-4312-9a54-5ef4d7073e32.png)
+![](https://user-images.githubusercontent.com/60206647/137360240-2a80279b-4e12-4632-b41e-a582e1313caf.png)
+![](https://user-images.githubusercontent.com/60206647/137360247-9b152590-dc3a-49c8-9991-f6f916c78bb3.png)
 
-
-
+运行视频：
+使用了iPhone手机投屏到Mac上实时同步操作展示
+视频投稿到B站待审核中
 
 ### 总结
 
