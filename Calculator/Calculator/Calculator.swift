@@ -8,6 +8,13 @@
 import UIKit
 
 var memory:Double = 0
+//make sure each rand take different value from 0 to 1
+func myRandom()->Double{
+    let time = UInt32(NSDate().timeIntervalSinceReferenceDate)
+    srand48(Int(time))
+    let number = drand48 ()
+    return number
+}
 
 class Calculator: NSObject {
     
@@ -17,6 +24,8 @@ class Calculator: NSObject {
         case EqualOp
         case Constant(Double)
     }
+  
+    
     
     var operations = [
         "+": Operation.BinaryOp{
@@ -45,9 +54,31 @@ class Calculator: NSObject {
         },
         
         "EE":Operation.BinaryOp{
-           op1,op2 in
+            (op1,op2) in
            return op1 * pow(10,op2);
         },
+        
+        "logy":Operation.BinaryOp{
+            (op1,op2) in
+           return log(op1)/log(op2)
+       },
+        
+       "log2":Operation.UnaryOp{
+           op in
+           return log2(op)
+       },
+        
+        "y^x":Operation.BinaryOp{
+            (op1,op2) in
+            return pow(op2, op1)
+        },
+        
+        
+        "2^x":Operation.UnaryOp{
+            op in
+            return pow(2, op)
+        },
+        
         "=": Operation.EqualOp,
         
         "+/-": Operation.UnaryOp{
@@ -125,6 +156,37 @@ class Calculator: NSObject {
             return tanh(op)
         },
         
+        "sin-1":Operation.UnaryOp{
+            op in
+            return asin(op)
+        },
+        
+        "cos-1":Operation.UnaryOp{
+            op in
+            return acos(op)
+        },
+        
+        "tan-1":Operation.UnaryOp{
+            op in
+            return atan(op)
+        },
+        
+        "sinh-1":Operation.UnaryOp{
+            op in
+            return asinh(op)
+        },
+        
+        "cosh-1":Operation.UnaryOp{
+            op in
+            return acosh(op)
+        },
+        
+        "tanh-1":Operation.UnaryOp{
+            op in
+            return atanh(op)
+        },
+        
+        
         "2√x": Operation.UnaryOp{
             op in
             return sqrt(op)
@@ -147,6 +209,13 @@ class Calculator: NSObject {
         
         "x!": Operation.UnaryOp{
             op in
+            if op != Double(Int(op)){
+                return Double("nan")!
+            }
+            
+            if op == 0{
+                return 1.0
+            }
             var sum:Int = 1
             func factorial (){
                 var x = Int(op)
@@ -159,6 +228,11 @@ class Calculator: NSObject {
         },
         
         "C": Operation.UnaryOp{
+            _ in
+            return 0
+        },
+        
+        "AC": Operation.UnaryOp{
             _ in
             return 0
         },
@@ -186,13 +260,18 @@ class Calculator: NSObject {
             return memory
         },
         
+        "Rand": Operation.UnaryOp{
+            _ in
+            return myRandom()
+        },
+        
         //"mr":Operation.Constant(memory),
         
-        "π":Operation.Constant(3.1415926),
+        "π":Operation.Constant(3.141592653589793),
         
-        "e":Operation.Constant(2.71828),
+        "e":Operation.Constant(2.718281828459045),
         
-        "Rand":Operation.Constant(drand48())
+        
     ]
     
     struct Intermediate{
@@ -224,19 +303,19 @@ class Calculator: NSObject {
                     //print(memory)
                 return value;
             case .EqualOp:
-                var res: Double? = nil
+                var res: Double = operand
                 if pendingOp != nil{//if there is Operation
-                res = pendingOp!.waitingOperation(pendingOp!.firstOp,operand)
+                    res = pendingOp!.waitingOperation(pendingOp!.firstOp,operand)!
                 pendingOp = nil
                 }
                 return res
             case.UnaryOp(let function):
-                if operation == "C"
+                
+                if operation == "AC"
                 {
-                    if operand == 0//if digitOnDisplay has been cleared,clear the operation waiting
-                    {
-                        pendingOp = nil
-                    }
+                    //digitOnDisplay has been cleared,clear the operation waiting
+                    pendingOp = nil
+                    return 0
                 }
                 
                 res = function(operand)
