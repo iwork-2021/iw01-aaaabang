@@ -126,7 +126,7 @@
 
 运行视频：
 使用了iPhone手机投屏到Mac上实时同步操作展示
-视频投稿到B站待审核中
+https://www.bilibili.com/video/BV1aq4y157ch/
 
 ### 总结
 
